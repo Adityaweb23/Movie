@@ -1,33 +1,13 @@
-import react, { useState, useEffect } from 'react';
+
 import Navbar from './Navbar';
 import { useParams } from 'react-router-dom';
-import { API_URL } from './context';
+import useFetch from './useFetch';
 import Footer from './Footer';
 const SingleMovie = () => {
-
     const { id } = useParams();
-    const [setIsLoading] = useState(true);
-    const [movie, setMovie] = useState("");
-    const getMovies = async (url) => {
-        try {
-            const res = await fetch(url);
-            const data = await res.json();
-            console.log(data);
-            if (data.Response === "True") {
-                setMovie(data);
-                setIsLoading(false);
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    useEffect(() => {
-        let timerout = setTimeout(() => {
-            getMovies(`${API_URL}&i=${id}`);
-        }, 500)
-        return () => { clearTimeout(timerout) };
-    }, [id]);
+    console.log(id);
+  
+    const { movie} = useFetch(`&i=${id}`);
     return (
         <>
             <div className="container">
