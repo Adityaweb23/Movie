@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useGlobalContext } from "./context";
 const Navbar=()=>{
   const {query,setQuery,isError}=useGlobalContext();
+    
     return(
       <>
         <nav className="navbar navbar-expand-lg navbar-dark">
@@ -19,12 +20,6 @@ const Navbar=()=>{
       <ul className="navbar-nav mb-2 mb-lg-0 ml-auto">
         <li className="nav-item mx-1">
           <NavLink className="nav-link  p-1 max-1" aria-current="page" to="/">Home</NavLink>
-        </li>
-        <li className="nav-item mx-1">
-          <NavLink className="nav-link  p-1 max-1" aria-current="page" to="/">About</NavLink>
-        </li>
-        <li className="nav-item mx-1">
-          <NavLink className="nav-link  p-1 max-1" aria-current="page" to="/">Contact us</NavLink>
         </li>
       </ul>
     </div>
